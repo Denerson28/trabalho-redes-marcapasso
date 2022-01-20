@@ -1,20 +1,64 @@
 import socket
+import random
 
-def raw_input():
-    msg = str(input("digite uma mensagem: "))
+# class pessoa:
+#     def __init__(self, nome, idade, batimentos):
+#         self.nome = nome
+#         self.idade = idade
+#         self.batimentos = batimentos
 
-    return msg
+#         return None
 
 
-HOST = '127.0.0.1'     # Endereco IP do Servidor
-PORT = 5000            # Porta que o Servidor esta
-tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-dest = (HOST, PORT)
-tcp.connect(dest)
-print ('Para sair use CTRL+X\n')
-msg = raw_input()
+# def geradorPacientes():
+#     array_de_nomes = ["Miguel", "Denerson", "Heitor", "Theo", "Gabriel", "Bernardo", "Samuel", "Mairon", "Helena", "Luana", "Laura", "Maria Alice", "Poli", "Luisa", "Maria Clara", "Maria Cecilia", "Maria Julia"]
+#     array_de_sobrenomes = ["Silva", "Azevedo", "Oliveira", "Tobias", "Rodrigues", "Ferreira", "Berudio",  "Pereira", "Lima", "Leal", "Ribeiro"]
 
-while msg != '\x18':
-    tcp.send(msg.encode())
-    msg = raw_input()
-tcp.close()
+#     for i in range(5):
+#         vetor = []
+#         open(f'infos_pessoa{i}.txt', "x")
+#         document = open(f'infos_pessoa{i}.txt', "w")
+#         document.write(array_de_nomes[random.randint(0, 16)] + " " + array_de_sobrenomes[random.randint(0, 9)])
+#         document.write("\n" + f'{random.randint(45, 90)}')
+
+#         for i in range(0, 50):
+#             vetor.append(random.randint(30, 120))
+
+#         document.write("\n" + f'{vetor}')
+
+#         return None
+"""
+Lado do cliente: Usa sockets para mandar data para o servidor, e imprime
+a resposta do servidor para cada linha na mensagem. Podemos colocar o 
+host como sendo localhost para indicar que o servidor está na mesma máquina.
+Para rodar através da internet é preciso colocar o servidor em outra
+máquina e passar para o nome do host o endereço de IP ou o nome do
+domínio.
+"""
+
+from socket import *
+
+# Configurações de conexão do servidor
+# O nome do servidor pode ser o endereço de
+# IP ou o domínio (ola.python.net)
+serverHost = 'localhost'
+serverPort = 50007
+
+# Menssagem a ser mandada condificada em bytes
+menssagem = [b'Ola mundo da internet!']
+
+# Criamos o socket e o conectamos ao servidor
+sockobj = socket(AF_INET, SOCK_STREAM)
+sockobj.connect((serverHost, serverPort))
+
+# Mandamos a menssagem linha por linha
+for linha in menssagem:
+    sockobj.send(linha)
+
+    # Depois de mandar uma linha esperamos uma resposta
+    # do servidor
+    data = sockobj.recv(1024)
+    print('Cliente recebeu:', data)
+
+# Fechamos a conexão
+sockobj.close()
