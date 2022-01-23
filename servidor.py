@@ -7,6 +7,7 @@ estiver rodando. O cliente pode rodar em outra máquina ou no mesmo
 computador se usar o 'localhost' como servidor
 """
 
+from base64 import *
 from socket import *
 import time
 
@@ -45,12 +46,12 @@ while True:
         # Recebe data enviada pelo cliente
         data = conexão.recv(1024)
         # time.sleep(3)
-        
+        print(data.decode('utf-8'))
         # Se não receber nada paramos o loop
         if not data: break
 
         # O servidor manda de volta uma resposta
-        conexão.send(b'Eco=>' + data)
+        conexão.send(data)
     
     # Fecha a conexão criada depois de responder o
     # cliente
