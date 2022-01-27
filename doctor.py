@@ -1,7 +1,7 @@
 import socket
 import threading
 
-nickname = "Dr. Flávio Seixas"
+nickname = "Dr. Hans Chucrute"
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.connect(('127.0.0.1', 8080))
@@ -21,6 +21,7 @@ def receive():
                 print(f'Contagem atual de pacientes em perigo: {danger_counter}')
             else:
                 print(message)
+                
         except:
             print('An error has ocurred!')
             server.close()
