@@ -53,7 +53,7 @@ serverPort = 50007
 pacienteExemplo = geradorPaciente()
 
 # Menssagem a ser mandada condificada em bytes
-mensagem = f'Paciente {pacienteExemplo.nome} conectado!\n'.encode('utf-8')
+mensagem = f'Paciente {pacienteExemplo.nome} conectado!\nIdade do paciente: {pacienteExemplo.idade} anos\n\n'.encode('utf-8')
 
 
 
@@ -66,11 +66,11 @@ sockobj.send(mensagem)
 
 for i in pacienteExemplo.batimentos:
     if i > 80:
-        sockobj.send(f'O paciente {pacienteExemplo.nome} está em perigo!\nBatimento no minuto passado: {i} bpm'.encode('utf-8'))
+        sockobj.send(f'O paciente {pacienteExemplo.nome} está em perigo!\nBatimento no minuto passado: {i} bpm\n'.encode('utf-8'))
     elif i < 60:
-        sockobj.send(f'O paciente {pacienteExemplo.nome} registrou uma frequência fraca! O estímulo foi aplicado!\nBatimento no minuto passado: {i} bpm'.encode('utf-8'))
+        sockobj.send(f'O paciente {pacienteExemplo.nome} registrou uma frequência fraca! O estímulo foi aplicado!\nBatimento no minuto passado: {i} bpm\n'.encode('utf-8'))
     else:
-        sockobj.send(f'O paciente {pacienteExemplo.nome} está bem!\nBatimento no minuto passado: {i} bpm'.encode('utf-8'))
+        sockobj.send(f'O paciente {pacienteExemplo.nome} está bem!\nBatimento no minuto passado: {i} bpm\n'.encode('utf-8'))
 
     time.sleep(5)
 # Depois de mandar uma linha esperamos uma resposta

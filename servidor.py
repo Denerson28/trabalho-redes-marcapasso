@@ -9,12 +9,13 @@ computador se usar o 'localhost' como servidor
 
 from base64 import *
 from socket import *
+from _thread import *
 import time
 
 # Cria o nome do host
 meuHost = ''
 
-# Utiliza este número de porto
+# Utiliza este número de porta
 minhaPort = 50007
 
 # Cria um objeto socket. As duas constantes referem-se a:
@@ -26,6 +27,8 @@ minhaPort = 50007
 # SOCK_STREAM == Protocolo de transferência TCP
 # Combinação = Server TCP/IP
 sockobj = socket(AF_INET, SOCK_STREAM)
+
+contadorThread = 0
 
 # Vincula o servidor ao número de porto
 sockobj.bind((meuHost, minhaPort))
@@ -48,7 +51,8 @@ while True:
         # time.sleep(3)
         print(data.decode('utf-8'))
         # Se não receber nada paramos o loop
-        if not data: break
+        if not data: 
+            break
 
         # O servidor manda de volta uma resposta
         conexão.send(data)
