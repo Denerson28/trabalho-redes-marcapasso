@@ -37,7 +37,6 @@ def handle(client):
 def receive():
     while True:
         client, address = server.accept()
-        print(f'Connected with {str(address)}')
 
         client.send('NICK'.encode())
         nickname = client.recv(1024).decode()
