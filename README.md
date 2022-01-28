@@ -1,4 +1,4 @@
-# Trabalho de Redes: 2021.2
+# Trabalho de Redes II: 2021.2
 
 ### Professor: Flávio Seixas
 ### Alunos: Denerson Eduardo, Luana Vidal e Mairon Azevedo
