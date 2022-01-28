@@ -23,18 +23,11 @@ def receive():
                 print(message)
                 
         except:
-            print('An error has ocurred!')
+            print('Ocorreu um erro!')
             server.close()
             break
-    
-def write():
-    while True:
-        message = nickname + ' diz: ' + input('')
-        server.send(message.encode())
 
 receive_thread = threading.Thread(target = receive)
 receive_thread.start()
 
-write_thread = threading.Thread(target = write)
-write_thread.start()
 ClientMultiSocket = socket.socket()
