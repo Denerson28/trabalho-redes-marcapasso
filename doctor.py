@@ -8,11 +8,10 @@ server.connect(('127.0.0.1', 8080))
 
 def receive():
     danger_counter = 0
-
+    
     while True:
         try:
             message = server.recv(1024).decode()
-
             if message == 'NICK':
                 server.send(nickname.encode())
             elif 'perigo!' in message:
@@ -20,8 +19,7 @@ def receive():
                 print(message)
                 print(f'Contagem atual de pacientes em perigo: {danger_counter}')
             else:
-                print(message)
-                
+                print(message)        
         except:
             print('Ocorreu um erro!')
             server.close()
