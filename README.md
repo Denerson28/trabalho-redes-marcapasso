@@ -1,6 +1,7 @@
 # Trabalho de Redes: 2021.2
 
 ## Professor: Flávio Seixas
+## Alunos: Denerson Eduardo, Luana Vidal e Mairon Azevedo
 
 ### Motivação
 Este trabalho consiste em uma aplicação onde simula o *Marca-passo inteligente*, ou seja, um dispositivo conectado a um servidor através do protocolo TCP/IP. Seriam registrados os batimentos do paciente e em caso de qualquer tipo de irregularidade, o servidor emitiria um alerta ao doutor cadastrado na plataforma.
