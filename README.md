@@ -12,7 +12,7 @@ Este trabalho consiste em uma aplicação onde simula o *Marca-passo inteligente
 - Utilizamos a biblioteca *random* para gerar automaticamente valores aleatórios, tanto de batimentos como de pacientes;
 
 #### Executando o projeto
-##### *(É de suma importância que os passos sejam seguidos na ordem da documentação)*
+*(É de suma importância que os passos sejam seguidos na ordem da documentação)*
 - Não é necessária a instalação de nenhuma biblioteca adicional para a execução. 
 - Abra o terminal na pasta onde o projeto se encontra e digite ```python server.py```, feito isso, o servidor estará rodando.
 - Abra outro terminal e execute o comando ```python doctor.py```.
