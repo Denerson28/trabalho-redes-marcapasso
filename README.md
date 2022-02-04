@@ -11,6 +11,11 @@ Este trabalho consiste em uma aplicação onde simula o *Marca-passo inteligente
 - Utilizamos a biblioteca *threading* para a implementação de threads envolvendo o servidor, permitindo a conexão simultânea de mais de um cliente;
 - Utilizamos a biblioteca *random* para gerar automaticamente valores aleatórios, tanto de batimentos como de pacientes;
 
+#### Pré-requisitos
+Neste projeto, como utilizamos apenas bibliotecas nativas do python, é necessária apenas a instalação do mesmo :)
+- Python Download (https://www.python.org/downloads/release/python-3102/)
+- Caso você use linux, basta executar o comando ```sudo apt-get install python```
+
 #### Executando o projeto
 *(É de suma importância que os passos sejam seguidos na ordem da documentação)*
 - Não é necessária a instalação de nenhuma biblioteca adicional para a execução. 
